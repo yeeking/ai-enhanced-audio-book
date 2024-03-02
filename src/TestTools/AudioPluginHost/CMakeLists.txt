@@ -26,7 +26,9 @@ cmake_minimum_required(VERSION 3.15)
 
 
 # in case you want to build for macosx other than your current one
-set(CMAKE_OSX_DEPLOYMENT_TARGET "10.13")
+set (CMAKE_SYSTEM_VERSION 8.1) # windows
+set (CMAKE_OSX_DEPLOYMENT_TARGET 11.0) # mac
+set (CMAKE_OSX_ARCHITECTURES arm64;x86_64) # mac
 
 
 # The top-level CMakeLists.txt file for a project must contain a literal, direct call to the

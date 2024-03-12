@@ -84,4 +84,4 @@ add_executable(test_nn
   src/NeuralNetwork.cpp
   src/test_nn.cpp)
 target_link_libraries(test_nn "${TORCH_LIBRARIES}")
-set_property(TARGET test_nn PROPERTY CXX_STANDARD 14)
+set_property(TARGET test_nn PROPERTY CXX_STANDARD 17)

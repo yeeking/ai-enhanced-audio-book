@@ -35,7 +35,7 @@ float sumCoeffs(std::vector<float>& coeffs){
 void experiment1(){
   std::string xfile = "../../audio/drums_16bit.wav";
   std::string yfile = "../../audio/drums_expt1.wav";
-  std::vector<float> x = myk_tiny::(xfile);
+  std::vector<float> x = myk_tiny::loadWav(xfile);
   // simple moving average low pass filter 
   std::vector<float> b = {0.5, 0.5, 0.5};
   std::vector<float> y = conv(x, b);

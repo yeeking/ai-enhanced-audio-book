@@ -5,7 +5,7 @@
 #include <iostream> 
 
 int main(){
-    std::vector<float> audio =  myk_tiny::loadWav("../audio/toby.wav");
-    myk_tiny::saveWav(audio, 1, 44100, "../audio/testtiny.wav");
+    std::vector<float> audio =  myk_tiny::loadWav("../../audio/toby_short.wav");
+    myk_tiny::saveWav(audio, 1, 44100, "../../audio/testtiny.wav");
 }
 

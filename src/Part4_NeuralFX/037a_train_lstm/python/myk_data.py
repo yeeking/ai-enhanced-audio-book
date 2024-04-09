@@ -1,7 +1,8 @@
 import os 
 #from scipy.io import wavfile
 import numpy as np
-import soundfile as sf
+import soundfile as sf # can possibly remove this since it can't resample any more
+import librosa as lr 
 import torch
 from torch.utils.data import TensorDataset
 from torch.utils.data import random_split
@@ -20,13 +21,17 @@ def load_wav_file(filename, want_samplerate):
     """
     Load a WAV file using the soundfile module, resample to 44100 Hz, and return the first channel.
     """
+    # note that soundfile no longer has a samplerate function...
+    # now need to install librosa 
     # Load the WAV file
-    data, samplerate = sf.read(filename, dtype='float32')
-
+    # data, samplerate = sf.read(filename, dtype='float32', samplerate=want_samplerate)
     # Resample to 44100 Hz
-    if samplerate != want_samplerate:
-        print("load_wav_file warning: sample rate wrong, resampling from ", samplerate, "to", want_samplerate)
-        data = sf.resample(data, target_samplerate=want_samplerate)
+    # if samplerate != want_samplerate:
+    #     print("load_wav_file warning: sample rate wrong, resampling from ", samplerate, "to", want_samplerate)
+    #     data = sf.resample(data, target_samplerate=want_samplerate)
+
+    data, got_samplerate = lr.load(filename, dtype=np.float32, sr=want_samplerate)
+    assert got_samplerate == want_samplerate, "Sample rate does not match desired one of " + str(want_samplerate)
 
     # If the file has more than one channel, only return the first channel
     if len(data.shape) > 1 and data.shape[1] > 1:

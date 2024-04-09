@@ -21,7 +21,7 @@ float clip(float input, float clip_value) {
 }
 
 int main(){
-   std::vector<float> audio = myk_tiny::loadWav("../../audio/drums_16bit.wav");
+   std::vector<float> audio = myk_tiny::loadWav("../../audio/clean_signal.wav");
    for (auto i=0;i<audio.size();++i){
     audio[i] = relu(audio[i]);
    }

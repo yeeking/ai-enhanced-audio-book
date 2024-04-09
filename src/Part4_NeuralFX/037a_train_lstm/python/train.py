@@ -14,9 +14,9 @@ import sys
 from torch.utils.tensorboard import SummaryWriter
 
 # used for the writing of example outputs
-run_name="ht1"
+run_name="ssl-32-unit"
 # dataset : need an input and output folder in this folder
-audio_folder = "../../data/audio_ht1/"
+audio_folder = "../../data/audio_ssl/"
 # audio_folder = "../../data/audio_ht1"
 assert os.path.exists(audio_folder), "Audio folder  not found. Looked for " + audio_folder
 # used to render example output during training

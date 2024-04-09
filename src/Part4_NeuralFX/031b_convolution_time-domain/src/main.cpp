@@ -37,7 +37,7 @@ void experiment1(){
   std::string yfile = "../../audio/drums_expt1.wav";
   std::vector<float> x = myk_tiny::loadWav(xfile);
   // simple moving average low pass filter 
-  std::vector<float> b = {0.5, 0.5, 0.5};
+  std::vector<float> b = {0.5, 0.5, 0.1, 0.2, 0.1};
   std::vector<float> y = conv(x, b);
   amp(y, 1/sumCoeffs(b));// sum of 0.5, 0.5, 0.5
   myk_tiny::saveWav(y, 1, 44100, yfile);
@@ -46,7 +46,7 @@ void experiment1(){
 /** apply an impule read from a file */
 void experiment2(){
     std::string xfile = "../../audio/drums_16bit.wav";
-    std::string bfile = "../../audio/short_imp.wav";
+    std::string bfile = "../../audio/church_16bit.wav";
     std::string yfile = "../../audio/drums_expt2.wav";
     std::vector<float> x = myk_tiny::loadWav(xfile);
     std::vector<float> b = myk_tiny::loadWav(bfile);

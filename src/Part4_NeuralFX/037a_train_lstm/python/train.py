@@ -16,8 +16,9 @@ from torch.utils.tensorboard import SummaryWriter
 # used for the writing of example outputs
 run_name="ssl-32-unit"
 # dataset : need an input and output folder in this folder
-audio_folder = "../../data/audio_ssl/"
-# audio_folder = "../../data/audio_ht1"
+#audio_folder = "../../data/audio_ssl/"
+# this is a  dataset made with a simple audacity distortion effect
+audio_folder = "../../data/audio_audacity_dist"
 assert os.path.exists(audio_folder), "Audio folder  not found. Looked for " + audio_folder
 # used to render example output during training
 test_file = "../../data/audio_ht1/guitar.wav"

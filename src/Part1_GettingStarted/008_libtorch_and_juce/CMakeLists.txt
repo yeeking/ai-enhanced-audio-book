@@ -6,7 +6,23 @@ project(JUCE_PLUGIN_WITH_TORCH VERSION 0.0.1)
 ### some libtorch stuff
 # https://forum.juce.com/t/using-libtorch-with-juce/41154/4
 # list(APPEND CMAKE_PREFIX_PATH "<my_path_to>/libtorch-win-shared-with-deps-debug-1.12.0+cpu/libtorch")
-set(CMAKE_PREFIX_PATH "~/src/sw/libtorch-250/") # location of libtorch
+
+## commands for static build against libtorch
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_POSITION_INDEPENDENT_CODE ON) # Ensure position-independent code
+set(Torch_DIR "C:/Users/matthewyk/src/sw/libtorch-260/share/cmake/Torch")
+set(TORCH_STATIC ON)
+set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded") # Force static runtime if needed
+set(TORCH_LIBRARIES
+    torch_cpu
+    c10
+    pthreadpool
+    cpuinfo
+    XNNPACK
+)
+###
+
+#set(CMAKE_PREFIX_PATH "~/src/sw/libtorch-250/") # location of libtorch
 #set(CMAKE_PREFIX_PATH "C:/Users/matthewyk/src/sw/libtorch/")
 
 find_package(Torch REQUIRED)

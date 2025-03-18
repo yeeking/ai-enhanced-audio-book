@@ -1,4 +1,4 @@
-# ai-enhanced-audio-book
+# Build AI-Enhanced Audio Plugins with C++ 
 
 
 A repository of AI-enhanced audio plugins written using C++, JUCE, libtorch, RTNeural and other libraries

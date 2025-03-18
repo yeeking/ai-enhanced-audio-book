@@ -12,6 +12,8 @@ import os
 import sys 
 
 from torch.utils.tensorboard import SummaryWriter
+torch.backends.cudnn.benchmark = True
+
 
 # used for the writing of example outputs
 run_name="ssl-32-unit"

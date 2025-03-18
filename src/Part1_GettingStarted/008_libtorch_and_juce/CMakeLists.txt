@@ -6,8 +6,8 @@ project(JUCE_PLUGIN_WITH_TORCH VERSION 0.0.1)
 ### some libtorch stuff
 # https://forum.juce.com/t/using-libtorch-with-juce/41154/4
 # list(APPEND CMAKE_PREFIX_PATH "<my_path_to>/libtorch-win-shared-with-deps-debug-1.12.0+cpu/libtorch")
-#set(CMAKE_PREFIX_PATH "~/src/sw/libtorch-2/") # location of libtorch
-set(CMAKE_PREFIX_PATH "C:/Users/matthewyk/src/sw/libtorch/")
+set(CMAKE_PREFIX_PATH "~/src/sw/libtorch-250/") # location of libtorch
+#set(CMAKE_PREFIX_PATH "C:/Users/matthewyk/src/sw/libtorch/")
 
 find_package(Torch REQUIRED)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS}")

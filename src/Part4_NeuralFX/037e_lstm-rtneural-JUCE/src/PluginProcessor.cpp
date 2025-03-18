@@ -22,7 +22,7 @@ TestPluginAudioProcessor::TestPluginAudioProcessor()
                        )
 #endif
 {
-    std::string jsonPath = "/home/matthewyk/src/ai-enhanced-audio/ai-audio-book-code/src/Part4_NeuralFX/037d_lstm-rtneural/models/dist_32.json";
+    std::string jsonPath = "/home/matthewyk/src/ai-enhanced-audio/ai-audio-book-code-public/src/Part4_NeuralFX/037e_lstm-rtneural-JUCE/models/dist_32.json";
     setupModel(lstmModel, jsonPath);
 }
 

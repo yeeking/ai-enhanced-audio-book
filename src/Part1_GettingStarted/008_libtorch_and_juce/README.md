@@ -23,11 +23,10 @@ uv.dll
 
 By default, Windows always looks in c:\Windows\System32 for DLLs. So you can just copy them there. This is the simplest, but not the cleanest solution. It is ok for dev work, but if you upgrade your torch version, you need to remember to copy the dlls over. 
 
-Other options:
+Other, more complex but cleaner options:
 
 * Add the torch/lib folder to your PATH with an environment variable. https://www.wikihow.com/Change-the-PATH-Environment-Variable-on-Windows
 * Call the SetDllDirectory function in your plugin constructor and add the location of the DLLs. https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-setdlldirectorya
-* Statically link
 
 
 

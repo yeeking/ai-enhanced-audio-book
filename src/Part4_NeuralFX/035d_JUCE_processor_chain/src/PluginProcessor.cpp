@@ -188,7 +188,7 @@ void TestPluginAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, j
     ScopedNoDenormals noDenormals;
     const auto totalNumInputChannels  = getTotalNumInputChannels();
     const auto totalNumOutputChannels = getTotalNumOutputChannels();
-    const auto numChannels = jmax (totalNumInputChannels, totalNumOutputCh annels);
+    const auto numChannels = jmax (totalNumInputChannels, totalNumOutputChannels);
     auto inoutBlock = dsp::AudioBlock<float> (buffer).getSubsetChannelBlock (0, (size_t) numChannels);
     processorChain.process (dsp::ProcessContextReplacing<float> (inoutBlock));
 }

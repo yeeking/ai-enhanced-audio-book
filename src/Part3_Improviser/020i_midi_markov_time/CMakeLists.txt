@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.15)
 set(CMAKE_CXX_STANDARD 17)
 
-project(midi-markov-v1 VERSION 0.0.1)
+project(midi-markov-book VERSION 0.0.1)
 
 
 # set up the markov library as a separate part of the build
@@ -15,7 +15,7 @@ target_link_libraries(markov-expts  markov-lib)
 
 add_subdirectory(../../JUCE ./JUCE)                    # If you've put JUCE in a subdirectory called JUCE
 
-juce_add_plugin(midi-markov-v1
+juce_add_plugin(midi-markov-book
     # VERSION ...                               # Set this if the plugin version is different to the project version
     # ICON_BIG ...                              # ICON_* arguments specify a path to an image file to use as an icon for the Standalone
     # ICON_SMALL ...
@@ -30,13 +30,13 @@ juce_add_plugin(midi-markov-v1
     PLUGIN_CODE mmi0                            # A unique four-character plugin id with exactly one upper-case character
                                                 # GarageBand 10.3 requires the first letter to be upper-case, and the remaining letters to be lower-case
     FORMATS AU VST3 Standalone                  # The formats to build. Other valid formats are: AAX Unity VST AU AUv3
-    PRODUCT_NAME "midi-markov-v1")        # The name of the final executable, which can differ from the target name
+    PRODUCT_NAME "midi-markov-book")        # The name of the final executable, which can differ from the target name
 
 # you can do this since we are not using torch any more
-juce_generate_juce_header(midi-markov-v1)
+juce_generate_juce_header(midi-markov-book)
 
 
-target_sources(midi-markov-v1
+target_sources(midi-markov-book
     PRIVATE
     src/PluginEditor.cpp
     src/PluginProcessor.cpp
@@ -45,7 +45,7 @@ target_sources(midi-markov-v1
    )
 
 
-target_compile_definitions(midi-markov-v1
+target_compile_definitions(midi-markov-book
     PUBLIC # 
         JUCE_ALSA=1
         JUCE_DIRECTSOUND=1
@@ -60,7 +60,7 @@ target_compile_definitions(midi-markov-v1
         JUCE_USE_CURL=0     # If you remove this, add `NEEDS_CURL TRUE` to the `juce_add_plugin` call
         JUCE_VST3_CAN_REPLACE_VST2=0)
 
-target_link_libraries(midi-markov-v1
+target_link_libraries(midi-markov-book
     PRIVATE
         juce::juce_audio_utils
     PUBLIC

@@ -157,7 +157,9 @@ void AudioPluginAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer,
     {
         auto* input = buffer.getReadPointer (channel);
         std::copy(input, input + inBuffer.size(), inBuffer.begin());
-        processBlockState(lstmModel, lstmState, inBuffer, outBuffer, buffer.getNumSamples());
+        // don't forget to retain the state... thanks craigargh :)
+        lstmState = processBlockState(lstmModel, lstmState, inBuffer, outBuffer, buffer.getNumSamples());
+        //processBlockState(lstmModel, lstmState, inBuffer, outBuffer, buffer.getNumSamples());
         auto* output = buffer.getWritePointer (channel);
         std::copy(outBuffer.begin(), outBuffer.begin() + inBuffer.size(), output);
     }
